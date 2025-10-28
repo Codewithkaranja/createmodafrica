@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Createmodafrica | Digital Solutions Powered by African Innovation
+    </title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --navy: #0a1a3e;
+        --blue: #0077ff;
+        --white: #f4f7fa;
+        --gray: #4b5563;
+        --emerald: #00c46c;
+        --light-blue: rgba(0, 119, 255, 0.1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: var(--white);
+        color: var(--gray);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        color: var(--navy);
+        font-weight: 700;
+        line-height: 1.2;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 14px 32px;
+        border-radius: 4px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .btn-primary {
+        background-color: var(--blue);
+        color: white;
+        border: none;
+      }
+
+      .btn-primary:hover {
+        background-color: #0055cc;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(0, 119, 255, 0.2);
+      }
+
+      .btn-secondary {
+        background-color: transparent;
+        color: var(--navy);
+        border: 2px solid var(--navy);
+      }
+
+      .btn-secondary:hover {
+        background-color: var(--navy);
+        color: white;
+      }
+
+      section {
+        padding: 100px 0;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .section-header h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        position: relative;
+        display: inline-block;
+      }
+
+      .section-header h2:after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, var(--blue), var(--emerald));
+        border-radius: 2px;
+      }
+
+      .section-header p {
+        max-width: 700px;
+        margin: 0 auto;
+        font-size: 1.1rem;
+      }
+
+      /* Header & Navigation */
+      header {
+        background-color: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--navy);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+      }
+
+      .logo span {
+        color: var(--blue);
+      }
+
+      .logo i {
+        margin-right: 8px;
+        color: var(--emerald);
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+      }
+
+      .nav-links li {
+        margin-left: 30px;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--navy);
+        font-weight: 500;
+        transition: color 0.3s ease;
+        position: relative;
+      }
+
+      .nav-links a:hover {
+        color: var(--blue);
+      }
+
+      .nav-links a.active {
+        color: var(--blue);
+      }
+
+      .nav-links a.active:after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--blue);
+      }
+
+      .mobile-menu {
+        display: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(135deg, var(--navy) 0%, #1a2d5e 100%);
+        color: white;
+        padding: 180px 0 120px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        color: white;
+        margin-bottom: 20px;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 1s ease forwards 0.5s;
+      }
+
+      .hero p {
+        font-size: 1.3rem;
+        margin-bottom: 40px;
+        opacity: 0.9;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 1s ease forwards 0.8s;
+      }
+
+      .hero-btns {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 60px;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 1s ease forwards 1.1s;
+      }
+
+      .hero .btn-secondary {
+        color: white;
+        border-color: white;
+      }
+
+      .hero .btn-secondary:hover {
+        background-color: white;
+        color: var(--navy);
+      }
+
+      .client-logos {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 40px;
+        opacity: 0.7;
+        opacity: 0;
+        animation: fadeIn 1s ease forwards 1.4s;
+      }
+
+      .client-logos img {
+        height: 30px;
+        filter: brightness(0) invert(1);
+      }
+
+      .hero-shapes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .shape {
+        position: absolute;
+        border-radius: 50%;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 119, 255, 0.1) 0%,
+          rgba(0, 196, 108, 0.1) 100%
+        );
+      }
+
+      .shape-1 {
+        width: 300px;
+        height: 300px;
+        top: -150px;
+        right: -100px;
+        animation: float 20s infinite ease-in-out;
+      }
+
+      .shape-2 {
+        width: 200px;
+        height: 200px;
+        bottom: -50px;
+        left: -50px;
+        animation: float 15s infinite ease-in-out reverse;
+      }
+
+      /* About Section */
+      .about {
+        background-color: white;
+      }
+
+      .values {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .value-card {
+        text-align: center;
+        padding: 30px 20px;
+        border-radius: 8px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        background-color: white;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .value-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .value-icon {
+        width: 70px;
+        height: 70px;
+        margin: 0 auto 20px;
+        background: var(--light-blue);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        color: var(--blue);
+      }
+
+      .value-card h3 {
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+      }
+
+      /* Case Studies */
+      .case-studies {
+        background-color: var(--white);
+      }
+
+      .case-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
+      }
+
+      .case-card {
+        background-color: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .case-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .case-img {
+        height: 200px;
+        background-color: var(--light-blue);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--blue);
+        font-size: 3rem;
+      }
+
+      .case-content {
+        padding: 25px;
+      }
+
+      .case-content h3 {
+        margin-bottom: 10px;
+        font-size: 1.4rem;
+      }
+
+      .case-tag {
+        display: inline-block;
+        padding: 5px 12px;
+        background-color: var(--light-blue);
+        color: var(--blue);
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+      }
+
+      .case-content p {
+        margin-bottom: 20px;
+      }
+
+      .case-stats {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid #eee;
+      }
+
+      .stat {
+        text-align: center;
+      }
+
+      .stat-value {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--navy);
+      }
+
+      .stat-label {
+        font-size: 0.8rem;
+        color: var(--gray);
+      }
+
+      /* Services */
+      .services {
+        background-color: white;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .service-card {
+        background-color: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-top: 4px solid var(--blue);
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .service-icon {
+        width: 60px;
+        height: 60px;
+        background-color: var(--light-blue);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        font-size: 1.5rem;
+        color: var(--blue);
+      }
+
+      .service-card h3 {
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+      }
+
+      .service-card ul {
+        list-style: none;
+        margin-top: 15px;
+      }
+
+      .service-card li {
+        margin-bottom: 8px;
+        padding-left: 20px;
+        position: relative;
+      }
+
+      .service-card li:before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--emerald);
+        font-weight: bold;
+      }
+
+      /* Technologies */
+      .technologies {
+        background-color: var(--white);
+      }
+
+      .tech-logos {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 40px;
+        margin-top: 40px;
+      }
+
+      .tech-logo {
+        width: 100px;
+        height: 100px;
+        background-color: white;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease;
+      }
+
+      .tech-logo:hover {
+        transform: translateY(-5px);
+      }
+
+      .tech-logo i {
+        font-size: 2.5rem;
+        color: var(--navy);
+      }
+
+      /* Stats */
+      .stats {
+        background: linear-gradient(135deg, var(--navy) 0%, #1a2d5e 100%);
+        color: white;
+        text-align: center;
+      }
+
+      .stats h2 {
+        color: white;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .stat-box {
+        padding: 30px 20px;
+      }
+
+      .stat-box .value {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+        color: white;
+      }
+
+      .stat-box .label {
+        font-size: 1.1rem;
+        opacity: 0.9;
+      }
+
+      /* Contact */
+      .contact {
+        background-color: white;
+      }
+
+      .contact-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: start;
+      }
+
+      .contact-info h3 {
+        margin-bottom: 20px;
+        font-size: 1.5rem;
+      }
+
+      .contact-info p {
+        margin-bottom: 30px;
+      }
+
+      .contact-methods {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin-bottom: 30px;
+      }
+
+      .contact-method {
+        display: flex;
+        align-items: center;
+      }
+
+      .contact-icon {
+        width: 50px;
+        height: 50px;
+        background-color: var(--light-blue);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        color: var(--blue);
+        font-size: 1.2rem;
+      }
+
+      .contact-form {
+        background-color: var(--white);
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+        color: var(--navy);
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-family: "Inter", sans-serif;
+        transition: border-color 0.3s ease;
+      }
+
+      .form-control:focus {
+        outline: none;
+        border-color: var(--blue);
+      }
+
+      textarea.form-control {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--navy);
+        color: white;
+        padding: 70px 0 30px;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 40px;
+        margin-bottom: 50px;
+      }
+
+      .footer-col h3 {
+        color: white;
+        margin-bottom: 25px;
+        font-size: 1.3rem;
+        position: relative;
+      }
+
+      .footer-col h3:after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 40px;
+        height: 3px;
+        background-color: var(--blue);
+      }
+
+      .footer-col p {
+        margin-bottom: 20px;
+        opacity: 0.8;
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 12px;
+      }
+
+      .footer-links a {
+        color: white;
+        text-decoration: none;
+        opacity: 0.8;
+        transition: opacity 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        opacity: 1;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .social-link {
+        width: 40px;
+        height: 40px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+      }
+
+      .social-link:hover {
+        background-color: var(--blue);
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        opacity: 0.7;
+        font-size: 0.9rem;
+      }
+
+      /* Animations */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(5deg);
+        }
+      }
+
+      /* Particle Animation */
+      .particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .particle {
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 50%;
+        animation: floatParticle 15s infinite linear;
+      }
+
+      @keyframes floatParticle {
+        0% {
+          transform: translateY(100vh) rotate(0deg);
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        90% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-100px) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      /* Responsive Design */
+      @media (max-width: 992px) {
+        .footer-content {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .contact-container {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background-color: white;
+          flex-direction: column;
+          padding: 20px;
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+
+        .nav-links li {
+          margin: 10px 0;
+        }
+
+        .mobile-menu {
+          display: block;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero-btns {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .hero-btns .btn {
+          width: 100%;
+          max-width: 250px;
+          margin-bottom: 10px;
+        }
+
+        .section-header h2 {
+          font-size: 2rem;
+        }
+
+        .footer-content {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <nav class="navbar">
+          <a href="index.html" class="logo">
+            <i class="fas fa-globe-africa"></i>
+            Createmoda<span>frica</span>
+          </a>
+          <ul class="nav-links" id="navLinks">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="technologies.html">Technologies</a></li>
+            <li><a href="casestudies.html">Case Studies</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+          <div class="mobile-menu" id="mobileMenu">
+            <i class="fas fa-bars"></i>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+      </div>
+      <div class="particles" id="particles"></div>
+      <div class="container">
+        <div class="hero-content">
+          <h1>Digital Solutions Powered by African Innovation</h1>
+          <p>
+            We engineer scalable digital products that empower businesses across
+            Africa to compete globally.
+          </p>
+          <div class="hero-btns">
+            <a href="casestudies.html" class="btn btn-primary">View Our Work</a>
+            <a href="contact.html" class="btn btn-secondary"
+              >Let's Build Together</a
+            >
+          </div>
+          <div class="client-logos">
+            <img
+              src="https://via.placeholder.com/120x40/0A1A3E/FFFFFF?text=CLIENT+1"
+              alt="Client 1"
+            />
+            <img
+              src="https://via.placeholder.com/120x40/0A1A3E/FFFFFF?text=CLIENT+2"
+              alt="Client 2"
+            />
+            <img
+              src="https://via.placeholder.com/120x40/0A1A3E/FFFFFF?text=CLIENT+3"
+              alt="Client 3"
+            />
+            <img
+              src="https://via.placeholder.com/120x40/0A1A3E/FFFFFF?text=CLIENT+4"
+              alt="Client 4"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="section-header">
+          <h2>Who We Are</h2>
+          <p>
+            A Kenyan company with Silicon Valley cousins, bridging global
+            technology with African innovation to deliver world-class digital
+            solutions.
+          </p>
+        </div>
+        <div class="values">
+          <div class="value-card fade-in">
+            <div class="value-icon">
+              <i class="fas fa-lightbulb"></i>
+            </div>
+            <h3>Innovation</h3>
+            <p>
+              Pushing boundaries with cutting-edge technology and creative
+              problem-solving.
+            </p>
+          </div>
+          <div class="value-card fade-in">
+            <div class="value-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3>Reliability</h3>
+            <p>
+              Consistent delivery of high-quality solutions with
+              enterprise-grade security.
+            </p>
+          </div>
+          <div class="value-card fade-in">
+            <div class="value-icon">
+              <i class="fas fa-globe"></i>
+            </div>
+            <h3>Global Reach</h3>
+            <p>
+              African roots with international partnerships and a worldwide
+              client base.
+            </p>
+          </div>
+          <div class="value-card fade-in">
+            <div class="value-icon">
+              <i class="fas fa-handshake"></i>
+            </div>
+            <h3>Partnership</h3>
+            <p>
+              Building lasting relationships with clients through collaboration
+              and trust.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section id="case-studies" class="case-studies">
+      <div class="container">
+        <div class="section-header">
+          <h2>Featured Case Studies</h2>
+          <p>
+            Real-world solutions delivering measurable results for businesses
+            across industries.
+          </p>
+        </div>
+        <div class="case-grid">
+          <div class="case-card fade-in">
+            <div class="case-img">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <div class="case-content">
+              <span class="case-tag">FinTech</span>
+              <h3>Mobile Banking Platform</h3>
+              <p>
+                Revolutionized digital banking for a leading financial
+                institution, increasing user engagement by 45%.
+              </p>
+              <div class="case-stats">
+                <div class="stat">
+                  <div class="stat-value">45%</div>
+                  <div class="stat-label">Engagement Increase</div>
+                </div>
+                <div class="stat">
+                  <div class="stat-value">2M+</div>
+                  <div class="stat-label">Active Users</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="case-card fade-in">
+            <div class="case-img">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="case-content">
+              <span class="case-tag">E-commerce</span>
+              <h3>Omnichannel Retail Solution</h3>
+              <p>
+                Developed a unified commerce platform that increased online
+                sales by 78% in the first year.
+              </p>
+              <div class="case-stats">
+                <div class="stat">
+                  <div class="stat-value">78%</div>
+                  <div class="stat-label">Sales Growth</div>
+                </div>
+                <div class="stat">
+                  <div class="stat-value">3.2x</div>
+                  <div class="stat-label">Faster Checkout</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="case-card fade-in">
+            <div class="case-img">
+              <i class="fas fa-heartbeat"></i>
+            </div>
+            <div class="case-content">
+              <span class="case-tag">HealthTech</span>
+              <h3>Telemedicine Platform</h3>
+              <p>
+                Created a scalable telehealth solution that expanded healthcare
+                access to remote communities.
+              </p>
+              <div class="case-stats">
+                <div class="stat">
+                  <div class="stat-value">60%</div>
+                  <div class="stat-label">Cost Reduction</div>
+                </div>
+                <div class="stat">
+                  <div class="stat-value">500K+</div>
+                  <div class="stat-label">Patients Served</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: 50px">
+          <a href="casestudies.html" class="btn btn-primary"
+            >View All Case Studies</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats">
+      <div class="container">
+        <div class="section-header">
+          <h2>Why Choose Us?</h2>
+          <p>
+            Measurable outcomes that demonstrate our commitment to excellence.
+          </p>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-box fade-in">
+            <div class="value">98%</div>
+            <div class="label">Client Satisfaction</div>
+          </div>
+          <div class="stat-box fade-in">
+            <div class="value">100+</div>
+            <div class="label">Successful Deployments</div>
+          </div>
+          <div class="stat-box fade-in">
+            <div class="value">30%</div>
+            <div class="label">Faster Delivery</div>
+          </div>
+          <div class="stat-box fade-in">
+            <div class="value">ISO</div>
+            <div class="label">Security Practices</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-col">
+            <h3>Createmodafrica</h3>
+            <p>
+              Digital Solutions Powered by African Innovation. We engineer
+              scalable digital products that empower businesses across Africa to
+              compete globally.
+            </p>
+            <div class="social-links">
+              <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-link"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a href="#" class="social-link"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="social-link"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h3>Services</h3>
+            <ul class="footer-links">
+              <li><a href="services.html">Software Development</a></li>
+              <li><a href="services.html">Cloud & DevOps</a></li>
+              <li><a href="services.html">Data & Analytics</a></li>
+              <li><a href="services.html">Brand & Product Strategy</a></li>
+              <li><a href="services.html">Cybersecurity</a></li>
+              <li><a href="services.html">IT Consultancy</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Company</h3>
+            <ul class="footer-links">
+              <li><a href="index.html">About Us</a></li>
+              <li><a href="casestudies.html">Case Studies</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Locations</h3>
+            <ul class="footer-links">
+              <li><a href="#">Nairobi, Kenya</a></li>
+              <li><a href="#">Lagos, Nigeria</a></li>
+              <li><a href="#">Cape Town, South Africa</a></li>
+              <li><a href="#">Accra, Ghana</a></li>
+              <li><a href="#">Kigali, Rwanda</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2023 Createmodafrica. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Scroll animations
+      document.addEventListener("DOMContentLoaded", function () {
+        const fadeElements = document.querySelectorAll(".fade-in");
+
+        const fadeInOnScroll = function () {
+          fadeElements.forEach((element) => {
+            const elementTop = element.getBoundingClientRect().top;
+            const elementVisible = 150;
+
+            if (elementTop < window.innerHeight - elementVisible) {
+              element.classList.add("visible");
+            }
+          });
+        };
+
+        // Initial check
+        fadeInOnScroll();
+
+        // Check on scroll
+        window.addEventListener("scroll", fadeInOnScroll);
+
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById("mobileMenu");
+        const navLinks = document.getElementById("navLinks");
+
+        mobileMenu.addEventListener("click", function () {
+          navLinks.classList.toggle("active");
+        });
+
+        // Particle animation
+        const particlesContainer = document.getElementById("particles");
+        const particleCount = 30;
+
+        for (let i = 0; i < particleCount; i++) {
+          const particle = document.createElement("div");
+          particle.classList.add("particle");
+
+          // Random size between 2px and 6px
+          const size = Math.random() * 4 + 2;
+          particle.style.width = `${size}px`;
+          particle.style.height = `${size}px`;
+
+          // Random position
+          particle.style.left = `${Math.random() * 100}%`;
+
+          // Random animation delay and duration
+          const delay = Math.random() * 15;
+          const duration = Math.random() * 10 + 15;
+          particle.style.animationDelay = `${delay}s`;
+          particle.style.animationDuration = `${duration}s`;
+
+          particlesContainer.appendChild(particle);
+        }
+
+        // Form submission
+        const form = document.getElementById("quote-form");
+        if (form) {
+          form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            alert("Thank you for your inquiry! We will get back to you soon.");
+            form.reset();
+          });
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute("href");
+            if (targetId === "#") return;
+
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: "smooth",
+              });
+
+              // Close mobile menu if open
+              if (window.innerWidth <= 768) {
+                navLinks.classList.remove("active");
+              }
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
