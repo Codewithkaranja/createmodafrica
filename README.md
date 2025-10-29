@@ -11,7 +11,7 @@ A professional, responsive website for Createmodafrica, showcasing their digital
 
 ## 🚀 Features
 
-- **5 Complete Pages**: Home, Services, Technologies, Case Studies, and Contact
+- **5 Complete Pages**: Home, Services, Technologies, Portfolio, and Contact
 - **Modern Design**: Professional tech company aesthetic with African identity
 - **Fully Responsive**: Works perfectly on all device sizes
 - **Interactive Elements**: Animated hero sections, filtering, modals, and more
@@ -32,7 +32,7 @@ createmodafrica/
 ├── index.html          # Home page
 ├── services.html       # Services page
 ├── technologies.html   # Technologies page
-├── casestudies.html    # Case studies page
+├── portfolio.html    # Portfolio page
 ├── contact.html        # Contact page
 ├── README.md          # Project documentation
 └── .gitignore         # Git ignore file
@@ -51,7 +51,7 @@ createmodafrica/
 ### Home (\`index.html\`)
 - Hero section with animated particles
 - Company values and services overview
-- Featured case studies
+- Featured Portfolio
 - Statistics and client testimonials
 
 ### Services (\`services.html\`)
@@ -65,7 +65,7 @@ createmodafrica/
 - Categorized tech stack display
 - Certification and partnership showcase
 
-### Case Studies (\`casestudies.html\`)
+### Portfolio (\`portfolio.html\`)
 - Filterable project portfolio
 - Detailed case study modals
 - Client testimonials

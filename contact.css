@@ -181,12 +181,18 @@
 
       /* Hero Section */
       .hero {
-        background: linear-gradient(135deg, var(--navy) 0%, #1a2d5e 100%);
-        color: white;
-        padding: 180px 0 120px;
-        position: relative;
-        overflow: hidden;
-      }
+  background: 
+    linear-gradient(135deg, rgba(6, 17, 48, 0.432) 0%, rgba(10, 25, 70, 0.226) 60%),
+    url("https://plus.unsplash.com/premium_photo-1731730342472-211b1020d8f6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGltYWdlcyUyMDNEJTIwZm9yJTIwYSUyMHRlY2glMjBjb21wYW55JTIwd2Vic2l0ZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=700");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+  padding: 180px 0 120px;
+  position: relative;
+  overflow: hidden;
+}
+
 
       .hero-content {
         max-width: 800px;
@@ -546,7 +552,7 @@
 
       /* Footer */
       footer {
-        background-color: var(--navy);
+        background-color: black;
         color: white;
         padding: 70px 0 30px;
       }

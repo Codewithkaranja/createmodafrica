@@ -1,91 +1,125 @@
- // Scroll animations
-      document.addEventListener("DOMContentLoaded", function () {
-        const fadeElements = document.querySelectorAll(".fade-in");
+// Scroll animations
+document.addEventListener("DOMContentLoaded", function () {
+  const fadeElements = document.querySelectorAll(".fade-in");
 
-        const fadeInOnScroll = function () {
-          fadeElements.forEach((element) => {
-            const elementTop = element.getBoundingClientRect().top;
-            const elementVisible = 150;
+  const fadeInOnScroll = function () {
+    fadeElements.forEach((element) => {
+      const elementTop = element.getBoundingClientRect().top;
+      const elementVisible = 150;
 
-            if (elementTop < window.innerHeight - elementVisible) {
-              element.classList.add("visible");
-            }
-          });
-        };
+      if (elementTop < window.innerHeight - elementVisible) {
+        element.classList.add("visible");
+      }
+    });
+  };
 
-        // Initial check
-        fadeInOnScroll();
+  fadeInOnScroll();
+  window.addEventListener("scroll", fadeInOnScroll);
 
-        // Check on scroll
-        window.addEventListener("scroll", fadeInOnScroll);
+  // ✅ Stats Count-Up Animation
+  const counters = document.querySelectorAll(".stat-box .value");
+  let statsStarted = false;
 
-        // Mobile menu toggle
-        const mobileMenu = document.getElementById("mobileMenu");
-        const navLinks = document.getElementById("navLinks");
+  const animateCounters = () => {
+    if (statsStarted) return;
+    statsStarted = true;
 
-        mobileMenu.addEventListener("click", function () {
-          navLinks.classList.toggle("active");
+    counters.forEach(counter => {
+      const originalText = counter.innerText;
+      const target = parseInt(originalText.replace(/[^0-9]/g, ""));
+      const duration = 3500;
+      const stepTime = 30;
+      let current = 0;
+
+      const timer = setInterval(() => {
+        current += Math.ceil(target / (duration / stepTime));
+
+        if (current >= target) {
+          counter.innerText = originalText;
+          clearInterval(timer);
+        } else {
+          counter.innerText = originalText.includes("%")
+            ? current + "%"
+            : originalText.includes("+")
+            ? current + "+"
+            : current;
+        }
+      }, stepTime);
+    });
+  };
+
+  const statsSection = document.querySelector(".stats-grid");
+  if (statsSection) {
+    const statsObserver = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) animateCounters();
+    }, { threshold: 0.4 });
+
+    statsObserver.observe(statsSection);
+  }
+
+  // Mobile menu toggle
+  const mobileMenu = document.getElementById("mobileMenu");
+  const navLinks = document.getElementById("navLinks");
+
+  mobileMenu.addEventListener("click", function () {
+    navLinks.classList.toggle("active");
+  });
+
+  // Particle animation
+  const particlesContainer = document.getElementById("particles");
+  const particleCount = 30;
+
+  for (let i = 0; i < particleCount; i++) {
+    const particle = document.createElement("div");
+    particle.classList.add("particle");
+
+    const size = Math.random() * 4 + 2;
+    particle.style.width = `${size}px`;
+    particle.style.height = `${size}px`;
+
+    particle.style.left = `${Math.random() * 100}%`;
+    const delay = Math.random() * 15;
+    const duration = Math.random() * 10 + 15;
+    particle.style.animationDelay = `${delay}s`;
+    particle.style.animationDuration = `${duration}s`;
+
+    particlesContainer.appendChild(particle);
+  }
+
+  // Form submission
+  const form = document.getElementById("quote-form");
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      alert("Thank you for your inquiry! We will get back to you soon.");
+      form.reset();
+    });
+  }
+
+  // Smooth scrolling for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      const targetId = this.getAttribute("href");
+      if (targetId === "#") return;
+
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 80,
+          behavior: "smooth",
         });
 
-        // Particle animation
-        const particlesContainer = document.getElementById("particles");
-        const particleCount = 30;
-
-        for (let i = 0; i < particleCount; i++) {
-          const particle = document.createElement("div");
-          particle.classList.add("particle");
-
-          // Random size between 2px and 6px
-          const size = Math.random() * 4 + 2;
-          particle.style.width = `${size}px`;
-          particle.style.height = `${size}px`;
-
-          // Random position
-          particle.style.left = `${Math.random() * 100}%`;
-
-          // Random animation delay and duration
-          const delay = Math.random() * 15;
-          const duration = Math.random() * 10 + 15;
-          particle.style.animationDelay = `${delay}s`;
-          particle.style.animationDuration = `${duration}s`;
-
-          particlesContainer.appendChild(particle);
+        if (window.innerWidth <= 768) {
+          navLinks.classList.remove("active");
         }
+      }
+    });
+  });
+});
 
-        // Form submission
-        const form = document.getElementById("quote-form");
-        if (form) {
-          form.addEventListener("submit", function (e) {
-            e.preventDefault();
-            alert("Thank you for your inquiry! We will get back to you soon.");
-            form.reset();
-          });
-        }
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-          anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-
-            const targetId = this.getAttribute("href");
-            if (targetId === "#") return;
-
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-              window.scrollTo({
-                top: targetElement.offsetTop - 80,
-                behavior: "smooth",
-              });
-
-              // Close mobile menu if open
-              if (window.innerWidth <= 768) {
-                navLinks.classList.remove("active");
-              }
-            }
-          });
-        });
-      });
-      // Simulated touch interaction controller
+// Simulated touch interaction controller
 (function(){
   const screens = Array.from(document.querySelectorAll('.device-screen .screen'));
   const finger = document.querySelector('.sim-finger');
@@ -94,54 +128,43 @@
   let idx = 0;
   let cycleTimer = null;
 
-  // utility: show screen by index
   function showScreen(n){
     screens.forEach((s,i)=>{
       s.classList.toggle('active', i===n);
     });
   }
 
-  // simulate a tap at position within device-screen
   function simulateTap(xPct, yPct, pressTargetSelector){
     const screenRect = document.querySelector('.device-screen').getBoundingClientRect();
     const x = screenRect.left + (screenRect.width * xPct);
     const y = screenRect.top + (screenRect.height * yPct);
 
-    // position the finger (relative to the whole page)
     finger.style.left = `${x}px`;
     finger.style.top = `${y}px`;
     finger.style.opacity = '1';
 
-    // locate button to press (optional)
     const pressTarget = document.querySelector('.device-screen .active ' + (pressTargetSelector || ''));
 
-    // visual press: add class to target
     if (pressTarget){
       pressTarget.classList.add('press');
       setTimeout(()=> pressTarget.classList.remove('press'), 420);
     }
 
-    // retract finger after short delay
     setTimeout(()=> finger.style.opacity = '0', 520);
   }
 
-  // higher-level sequence per screen
   function stepSequence(n){
     switch(n){
       case 0:
-        // on dashboard: tap "Send" button then switch to transactions
         simulateTap(0.66, 0.77, '.screen-1 .app-btn.primary');
         setTimeout(()=> { showScreen(1); }, 920);
         break;
       case 1:
-        // on transactions: tap 'See All' then bounce to analytics
         setTimeout(()=> simulateTap(0.5, 0.85, '.screen-2 .app-btn'), 220);
         setTimeout(()=> { showScreen(2); }, 980);
         break;
       case 2:
-        // on analytics: tap a bar to animate then return to dashboard
         simulateTap(0.34, 0.6, '');
-        // animate bars
         const bars = document.querySelectorAll('.screen-3 .bar');
         bars.forEach((b, i)=> {
           const newH = [40,68,78,55,88][i] + Math.floor(Math.random()*6);
@@ -154,7 +177,6 @@
     }
   }
 
-  // start cycle
   function startCycle(){
     showScreen(0);
     idx = 0;
@@ -165,14 +187,54 @@
     }, 3000);
   }
 
-  // wait until DOM ready-ish and start
   document.addEventListener('DOMContentLoaded', ()=>{
-    // small delay to ensure layout sizes are ready
     setTimeout(()=> startCycle(), 600);
   });
 
-  // pause animation when user hovers (optional nice UX)
   const hero = document.querySelector('.hero-touch');
   hero.addEventListener('mouseenter', ()=> { if(cycleTimer) clearInterval(cycleTimer); });
   hero.addEventListener('mouseleave', ()=> { startCycle(); });
 })();
+const cards = document.querySelectorAll(".case-card");
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+
+      const stats = entry.target.querySelectorAll(".stat-value");
+      stats.forEach(stat => {
+        const target = parseFloat(stat.textContent);
+        let start = 0;
+        let duration = 1200;
+        let stepTime = 20;
+
+        let counter = setInterval(() => {
+          start += target / (duration / stepTime);
+          if (start >= target) {
+            stat.textContent = target + (stat.textContent.includes("%") ? "%" : "");
+            clearInterval(counter);
+          } else {
+            stat.textContent = Math.floor(start) + (stat.textContent.includes("%") ? "%" : "");
+          }
+        }, stepTime);
+      });
+
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+
+cards.forEach(card => observer.observe(card));
+const valueCards = document.querySelectorAll(".value-card");
+
+const valsObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      valsObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+
+valueCards.forEach(card => valsObserver.observe(card));

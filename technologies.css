@@ -180,13 +180,14 @@
       }
 
       /* Hero Section */
-      .hero {
-        background: linear-gradient(135deg, var(--navy) 0%, #1a2d5e 100%);
-        color: white;
-        padding: 180px 0 120px;
-        position: relative;
-        overflow: hidden;
-      }
+    .hero {
+  position: relative;
+  background: url('https://images.unsplash.com/photo-1639322537228-f710d846310a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTc4fHxpbWFnZXMlMjAzRCUyMGZvciUyMGElMjB0ZWNoJTIwY29tcGFueSUyMHdlYnNpdGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=1920')
+    center/cover no-repeat;
+  color: white;
+  padding: 180px 0 160px;
+  overflow: hidden;
+}
 
       .hero-content {
         max-width: 800px;
@@ -493,7 +494,7 @@
 
       /* Footer */
       footer {
-        background-color: var(--navy);
+        background-color: black;
         color: white;
         padding: 70px 0 30px;
       }

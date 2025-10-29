@@ -1,5 +1,5 @@
  // Case study data
-      const caseStudies = {
+      const portfolio = {
         1: {
           title: "Mobile Banking Platform",
           category: "FinTech",
@@ -171,7 +171,7 @@
         caseButtons.forEach((button) => {
           button.addEventListener("click", function () {
             const caseId = this.getAttribute("data-case");
-            const caseData = caseStudies[caseId];
+            const caseData = portfolio[caseId];
 
             if (caseData) {
               modalBody.innerHTML = `
