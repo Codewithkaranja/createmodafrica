@@ -421,6 +421,9 @@
       .offices {
         background-color: var(--white);
       }
+      .offices h2{
+        color: #00e6a4;
+      }
     
 
       .office-grid {
