@@ -85,3 +85,94 @@
           });
         });
       });
+      // Simulated touch interaction controller
+(function(){
+  const screens = Array.from(document.querySelectorAll('.device-screen .screen'));
+  const finger = document.querySelector('.sim-finger');
+  const device = document.querySelector('.device-frame');
+
+  let idx = 0;
+  let cycleTimer = null;
+
+  // utility: show screen by index
+  function showScreen(n){
+    screens.forEach((s,i)=>{
+      s.classList.toggle('active', i===n);
+    });
+  }
+
+  // simulate a tap at position within device-screen
+  function simulateTap(xPct, yPct, pressTargetSelector){
+    const screenRect = document.querySelector('.device-screen').getBoundingClientRect();
+    const x = screenRect.left + (screenRect.width * xPct);
+    const y = screenRect.top + (screenRect.height * yPct);
+
+    // position the finger (relative to the whole page)
+    finger.style.left = `${x}px`;
+    finger.style.top = `${y}px`;
+    finger.style.opacity = '1';
+
+    // locate button to press (optional)
+    const pressTarget = document.querySelector('.device-screen .active ' + (pressTargetSelector || ''));
+
+    // visual press: add class to target
+    if (pressTarget){
+      pressTarget.classList.add('press');
+      setTimeout(()=> pressTarget.classList.remove('press'), 420);
+    }
+
+    // retract finger after short delay
+    setTimeout(()=> finger.style.opacity = '0', 520);
+  }
+
+  // higher-level sequence per screen
+  function stepSequence(n){
+    switch(n){
+      case 0:
+        // on dashboard: tap "Send" button then switch to transactions
+        simulateTap(0.66, 0.77, '.screen-1 .app-btn.primary');
+        setTimeout(()=> { showScreen(1); }, 920);
+        break;
+      case 1:
+        // on transactions: tap 'See All' then bounce to analytics
+        setTimeout(()=> simulateTap(0.5, 0.85, '.screen-2 .app-btn'), 220);
+        setTimeout(()=> { showScreen(2); }, 980);
+        break;
+      case 2:
+        // on analytics: tap a bar to animate then return to dashboard
+        simulateTap(0.34, 0.6, '');
+        // animate bars
+        const bars = document.querySelectorAll('.screen-3 .bar');
+        bars.forEach((b, i)=> {
+          const newH = [40,68,78,55,88][i] + Math.floor(Math.random()*6);
+          b.style.height = newH + '%';
+        });
+        setTimeout(()=> { showScreen(0); }, 1100);
+        break;
+      default:
+        showScreen(0);
+    }
+  }
+
+  // start cycle
+  function startCycle(){
+    showScreen(0);
+    idx = 0;
+    if (cycleTimer) clearInterval(cycleTimer);
+    cycleTimer = setInterval(()=>{
+      idx = (idx + 1) % 3;
+      stepSequence(idx);
+    }, 3000);
+  }
+
+  // wait until DOM ready-ish and start
+  document.addEventListener('DOMContentLoaded', ()=>{
+    // small delay to ensure layout sizes are ready
+    setTimeout(()=> startCycle(), 600);
+  });
+
+  // pause animation when user hovers (optional nice UX)
+  const hero = document.querySelector('.hero-touch');
+  hero.addEventListener('mouseenter', ()=> { if(cycleTimer) clearInterval(cycleTimer); });
+  hero.addEventListener('mouseleave', ()=> { startCycle(); });
+})();
