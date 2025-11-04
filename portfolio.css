@@ -307,7 +307,7 @@
 
       /* portfolio Grid */
       .case-studies {
-        background-color: var(--white);
+        background-color: black;
       }
 
       .case-grid {
@@ -406,14 +406,20 @@
 
       /* Featured Case Study */
       .featured-case {
-        background-color: white;
+        background-color: black;
       }
+       .featured-case p {
+        color: white;
+      }
+      
+
 
       .featured-content {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 50px;
         align-items: center;
+        color: white;
       }
 
       .featured-image {
