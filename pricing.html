@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CreateMod Africa - Digital Solutions</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --emerald: #0f766e;
+        --emerald-light: #0d9488;
+        --emerald-dark: #115e59;
+        --light-bg: #f8fafc;
+        --text-dark: #1e293b;
+        --text-light: #64748b;
+        --white: #ffffff;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        line-height: 1.6;
+        color: var(--text-dark);
+        background-color: var(--light-bg);
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Header Styles */
+      header {
+        background-color: var(--white);
+        box-shadow: var(--shadow);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .logo-icon {
+        width: 40px;
+        height: 40px;
+        background-color: var(--emerald);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        position: relative;
+      }
+
+      .logo-icon::before {
+        content: "";
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        border: 2px solid white;
+        border-radius: 4px;
+      }
+
+      .logo-text {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--emerald);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 30px;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--text-dark);
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: var(--emerald);
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--emerald);
+        cursor: pointer;
+      }
+
+      /* Hero Section */
+      .hero {
+        padding: 100px 0;
+        background: linear-gradient(
+          135deg,
+          var(--emerald) 0%,
+          var(--emerald-dark) 100%
+        );
+        color: white;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+        background-size: cover;
+      }
+
+      .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        line-height: 1.2;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        opacity: 0.9;
+      }
+
+      .cta-button {
+        display: inline-block;
+        background-color: white;
+        color: var(--emerald);
+        padding: 12px 30px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s;
+        box-shadow: var(--shadow);
+      }
+
+      .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      /* About Section */
+      .section {
+        padding: 100px 0;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        color: var(--emerald);
+        margin-bottom: 15px;
+      }
+
+      .section-title p {
+        color: var(--text-light);
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .about-content {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+      }
+
+      .about-text {
+        flex: 1;
+      }
+
+      .about-text h3 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        color: var(--emerald);
+      }
+
+      .about-text p {
+        margin-bottom: 20px;
+        color: var(--text-light);
+      }
+
+      .about-image {
+        flex: 1;
+        background-color: var(--emerald-light);
+        height: 400px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .about-image::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+        background-size: cover;
+      }
+
+      /* Services Section */
+      .services {
+        background-color: var(--white);
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .service-card {
+        background-color: var(--white);
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: var(--shadow);
+        transition: transform 0.3s;
+        text-align: center;
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .service-icon {
+        width: 70px;
+        height: 70px;
+        background-color: rgba(15, 118, 110, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        color: var(--emerald);
+        font-size: 1.8rem;
+      }
+
+      .service-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        color: var(--emerald);
+      }
+
+      .service-card p {
+        color: var(--text-light);
+        margin-bottom: 20px;
+      }
+
+      .service-price {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--emerald);
+      }
+
+      /* Pricing Packages Section */
+      .pricing {
+        background-color: var(--light-bg);
+      }
+
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .pricing-card {
+        background-color: var(--white);
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: transform 0.3s, box-shadow 0.3s;
+        position: relative;
+      }
+
+      .pricing-card:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .pricing-card.featured {
+        border: 3px solid var(--emerald);
+        transform: scale(1.05);
+      }
+
+      .pricing-card.featured:hover {
+        transform: scale(1.05) translateY(-10px);
+      }
+
+      .pricing-badge {
+        position: absolute;
+        top: 20px;
+        right: -30px;
+        background-color: var(--emerald);
+        color: white;
+        padding: 5px 30px;
+        transform: rotate(45deg);
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+
+      .pricing-header {
+        padding: 30px;
+        text-align: center;
+        background: linear-gradient(
+          135deg,
+          var(--emerald) 0%,
+          var(--emerald-dark) 100%
+        );
+        color: white;
+      }
+
+      .pricing-name {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+
+      .pricing-price {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 5px;
+      }
+
+      .pricing-period {
+        font-size: 0.9rem;
+        opacity: 0.8;
+      }
+
+      .pricing-features {
+        padding: 30px;
+      }
+
+      .pricing-feature {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+
+      .pricing-feature i {
+        color: var(--emerald);
+        margin-right: 10px;
+        font-size: 0.9rem;
+      }
+
+      .pricing-feature.disabled {
+        color: var(--text-light);
+      }
+
+      .pricing-feature.disabled i {
+        color: var(--text-light);
+      }
+
+      .pricing-footer {
+        padding: 0 30px 30px;
+        text-align: center;
+      }
+
+      .pricing-button {
+        display: block;
+        width: 100%;
+        padding: 12px;
+        background-color: var(--emerald);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .pricing-button:hover {
+        background-color: var(--emerald-dark);
+      }
+
+      .pricing-note {
+        margin-top: 15px;
+        font-size: 0.8rem;
+        color: var(--text-light);
+        text-align: center;
+      }
+
+      /* Why Choose Us Section */
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+      }
+
+      .feature-card {
+        background-color: var(--white);
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: var(--shadow);
+        text-align: center;
+      }
+
+      .feature-icon {
+        width: 60px;
+        height: 60px;
+        background-color: rgba(15, 118, 110, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        color: var(--emerald);
+        font-size: 1.5rem;
+      }
+
+      .feature-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+        color: var(--emerald);
+      }
+
+      /* Contact Section */
+      .contact {
+        background-color: var(--white);
+      }
+
+      .contact-content {
+        display: flex;
+        gap: 50px;
+      }
+
+      .contact-info {
+        flex: 1;
+      }
+
+      .contact-info h3 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        color: var(--emerald);
+      }
+
+      .contact-details {
+        margin-bottom: 30px;
+      }
+
+      .contact-detail {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+
+      .contact-detail i {
+        width: 40px;
+        height: 40px;
+        background-color: rgba(15, 118, 110, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        color: var(--emerald);
+      }
+
+      .qr-code {
+        width: 150px;
+        height: 150px;
+        background-color: #f1f5f9;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+        font-size: 0.8rem;
+        text-align: center;
+        padding: 10px;
+        box-shadow: var(--shadow);
+      }
+
+      .contact-form {
+        flex: 1;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #cbd5e1;
+        border-radius: 5px;
+        font-family: "Poppins", sans-serif;
+        transition: border-color 0.3s;
+      }
+
+      .form-control:focus {
+        outline: none;
+        border-color: var(--emerald);
+      }
+
+      .submit-btn {
+        background-color: var(--emerald);
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 5px;
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .submit-btn:hover {
+        background-color: var(--emerald-dark);
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--emerald-dark);
+        color: white;
+        padding: 50px 0 20px;
+      }
+
+      .footer-content {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 40px;
+      }
+
+      .footer-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      .footer-logo .logo-icon {
+        width: 30px;
+        height: 30px;
+      }
+
+      .footer-logo .logo-text {
+        font-size: 1.2rem;
+        color: white;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 30px;
+      }
+
+      .footer-links-column h4 {
+        margin-bottom: 20px;
+        font-size: 1.1rem;
+      }
+
+      .footer-links-column a {
+        display: block;
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        margin-bottom: 10px;
+        transition: color 0.3s;
+      }
+
+      .footer-links-column a:hover {
+        color: white;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .social-links a {
+        width: 40px;
+        height: 40px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-decoration: none;
+        transition: background-color 0.3s;
+      }
+
+      .social-links a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 992px) {
+        .about-content,
+        .contact-content {
+          flex-direction: column;
+        }
+
+        .footer-content {
+          flex-direction: column;
+          gap: 40px;
+        }
+
+        .pricing-card.featured {
+          transform: scale(1);
+        }
+
+        .pricing-card.featured:hover {
+          transform: translateY(-10px);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+
+        .mobile-menu-btn {
+          display: block;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .section {
+          padding: 70px 0;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .section-title h2 {
+          font-size: 2rem;
+        }
+
+        .services-grid,
+        .pricing-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <nav class="navbar">
+          <div class="logo">
+            <div class="logo-icon"></div>
+            <div class="logo-text">CreateMod Africa</div>
+          </div>
+          <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#pricing">Packages</a>
+            <a href="#why-us">Why Us</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <h1>We build software and websites that actually work</h1>
+          <p>
+            CreateMod Africa is a modern digital solutions company specializing
+            in high-performing websites, custom software, mobile apps, and
+            digital visibility solutions.
+          </p>
+          <a href="#pricing" class="cta-button">View Our Packages</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-title">
+          <h2>About CreateMod Africa</h2>
+          <p>
+            We focus on functionality, aesthetics, and user experience to help
+            businesses grow and establish a strong online presence.
+          </p>
+        </div>
+        <div class="about-content">
+          <div class="about-text">
+            <h3>Your Partner in Digital Transformation</h3>
+            <p>
+              At CreateMod Africa, we understand that in today's digital age,
+              having a strong online presence is crucial for business success.
+              We combine technical expertise with creative design to deliver
+              solutions that not only look great but also perform exceptionally.
+            </p>
+            <p>
+              Our team of experienced developers and designers work closely with
+              clients to understand their unique needs and deliver customized
+              solutions that drive growth and engagement.
+            </p>
+            <p>
+              Whether you need a simple portfolio website or a complex custom
+              software solution, we have the skills and experience to bring your
+              vision to life.
+            </p>
+          </div>
+          <div class="about-image">Digital Innovation for Africa</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services" id="services">
+      <div class="container">
+        <div class="section-title">
+          <h2>Our Services</h2>
+          <p>
+            We offer a comprehensive range of digital solutions to meet your
+            business needs.
+          </p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <h3>Custom Website Design & Development</h3>
+            <p>
+              Professional, responsive websites tailored to your brand and
+              business goals.
+            </p>
+            <div class="service-price">KES 75,000</div>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <h3>E-commerce Website</h3>
+            <p>
+              Full-featured online stores with secure payment integration and
+              inventory management.
+            </p>
+            <div class="service-price">KES 120,000</div>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-user-tie"></i>
+            </div>
+            <h3>Portfolio / Personal Brand Website</h3>
+            <p>
+              Showcase your work and build your personal brand with a
+              professional online presence.
+            </p>
+            <div class="service-price">KES 55,000</div>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>SEO Optimization & Analytics Setup</h3>
+            <p>
+              Improve your search engine rankings and track your website
+              performance.
+            </p>
+            <div class="service-price">KES 25,000</div>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-business-time"></i>
+            </div>
+            <h3>Professional Google Profile Creation & Optimization</h3>
+            <p>
+              Enhance your local visibility with a optimized Google Business
+              Profile.
+            </p>
+            <div class="service-price">KES 10,000</div>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <h3>Mobile App Development</h3>
+            <p>
+              Native and cross-platform mobile applications for iOS and Android.
+            </p>
+            <div class="service-price">KES 150,000</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Packages Section -->
+    <section class="section pricing" id="pricing">
+      <div class="container">
+        <div class="section-title">
+          <h2>Website Packages</h2>
+          <p>
+            Choose the perfect package for your business needs. All packages
+            include essential features with varying levels of capacity.
+          </p>
+        </div>
+        <div class="pricing-grid">
+          <!-- Starter Package -->
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <div class="pricing-name">Starter Package</div>
+              <div class="pricing-price">Ksh. 19,999</div>
+              <div class="pricing-period">One-time payment</div>
+            </div>
+            <div class="pricing-features">
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>Domain Registration</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>Hosting Setup</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>Up to 5-Pages</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>5-Email Address</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>Social Media Icons</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>Custom Design</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>Mobile Responsive</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>Ecommerce Functionalities</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>Up to 10 Products</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>Timeline: 10 Days</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>1-Month Support</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>Own CPanel</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>Payment Integration</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>Content Creation</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>Live Chat</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>Google Business Profile</span>
+              </div>
+            </div>
+            <div class="pricing-footer">
+              <button class="pricing-button">Enquire</button>
+              <div class="pricing-note">
+                50% deposit required to get started
+              </div>
+            </div>
+          </div>
+
+          <!-- Standard Package -->
+          <div class="pricing-card featured">
+            <div class="pricing-badge">Recommended</div>
+            <div class="pricing-header">
+              <div class="pricing-name">Standard Package</div>
+              <div class="pricing-price">Ksh. 39,999</div>
+              <div class="pricing-period">One-time payment</div>
+            </div>
+            <div class="pricing-features">
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>Domain Registration</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>Hosting Setup</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>Up to 20-Pages</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>10-Email Address</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>Social Media Icons</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>Custom Design</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>Mobile Responsive</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>Ecommerce Functionalities</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>Up to 30 Products</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>Timeline: 20 Days</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>2-Months Support</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>Own Cpanel</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>Payment Integration</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>Content Creation</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>Live Chat</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>Google Business Profile</span>
+              </div>
+            </div>
+            <div class="pricing-footer">
+              <button class="pricing-button">Enquire</button>
+              <div class="pricing-note">
+                50% deposit required to get started
+              </div>
+            </div>
+          </div>
+
+          <!-- Premium Package -->
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <div class="pricing-name">Premium Package</div>
+              <div class="pricing-price">Ksh. 70,000+</div>
+              <div class="pricing-period">One-time payment</div>
+            </div>
+            <div class="pricing-features">
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>Domain Registration</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>Hosting Setup</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>Unlimited Pages</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>Unlimited Email Address</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>Social Media Icons</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>Premium Design</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>Mobile Responsive</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>Ecommerce Functionalities</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>Unlimited Products</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>Timeline: 30 Days+</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>3-Months Support</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>Own Cpanel</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>Payment Integration</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>Content Creation</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>Live Chat</span>
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i>
+                <span>Google Business Profile</span>
+              </div>
+            </div>
+            <div class="pricing-footer">
+              <button class="pricing-button">Enquire</button>
+              <div class="pricing-note">
+                50% deposit required to get started
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="section" id="why-us">
+      <div class="container">
+        <div class="section-title">
+          <h2>Why Choose CreateMod Africa</h2>
+          <p>
+            We go beyond just building websites - we create partnerships for
+            long-term success.
+          </p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-paint-brush"></i>
+            </div>
+            <h3>Professional Designs</h3>
+            <p>
+              Responsive, user-friendly designs that work perfectly on all
+              devices.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <h3>Clean & Scalable Code</h3>
+            <p>
+              Well-structured code that's easy to maintain and scale as your
+              business grows.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-search"></i>
+            </div>
+            <h3>SEO & Visibility Solutions</h3>
+            <p>
+              Comprehensive SEO strategies to improve your online visibility and
+              reach.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-headset"></i>
+            </div>
+            <h3>Dedicated Support</h3>
+            <p>
+              Ongoing support and maintenance to ensure your digital presence
+              remains effective.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+      <div class="container">
+        <div class="section-title">
+          <h2>Get In Touch</h2>
+          <p>
+            Ready to start your digital transformation? Contact us today for a
+            free consultation.
+          </p>
+        </div>
+        <div class="contact-content">
+          <div class="contact-info">
+            <h3>Contact Information</h3>
+            <div class="contact-details">
+              <div class="contact-detail">
+                <i class="fas fa-phone-alt"></i>
+                <span>0723562484</span>
+              </div>
+              <div class="contact-detail">
+                <i class="fas fa-envelope"></i>
+                <span>codewithkaranja@gmail.com</span>
+              </div>
+            </div>
+            <div class="qr-code">Scan to save contact info</div>
+          </div>
+          <div class="contact-form">
+            <form id="contactForm">
+              <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" class="form-control" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" class="form-control" required />
+              </div>
+              <div class="form-group">
+                <label for="package">Package Interested In</label>
+                <select id="package" class="form-control" required>
+                  <option value="">Select a package</option>
+                  <option value="starter">Starter Package</option>
+                  <option value="standard">Standard Package</option>
+                  <option value="premium">Premium Package</option>
+                  <option value="custom">Custom Solution</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="message">Your Message</label>
+                <textarea
+                  id="message"
+                  class="form-control"
+                  rows="5"
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-about">
+            <div class="footer-logo">
+              <div class="logo-icon"></div>
+              <div class="logo-text">CreateMod Africa</div>
+            </div>
+            <p>
+              We build software and websites that actually work. Partner with us
+              for your digital transformation journey.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+          <div class="footer-links">
+            <div class="footer-links-column">
+              <h4>Services</h4>
+              <a href="#">Web Development</a>
+              <a href="#">E-commerce</a>
+              <a href="#">Mobile Apps</a>
+              <a href="#">SEO</a>
+            </div>
+            <div class="footer-links-column">
+              <h4>Packages</h4>
+              <a href="#">Starter</a>
+              <a href="#">Standard</a>
+              <a href="#">Premium</a>
+              <a href="#">Custom</a>
+            </div>
+            <div class="footer-links-column">
+              <h4>Company</h4>
+              <a href="#">About Us</a>
+              <a href="#">Our Team</a>
+              <a href="#">Careers</a>
+              <a href="#">Contact</a>
+            </div>
+            <div class="footer-links-column">
+              <h4>Support</h4>
+              <a href="#">Help Center</a>
+              <a href="#">Privacy Policy</a>
+              <a href="#">Terms of Service</a>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          &copy; 2023 CreateMod Africa. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile Menu Toggle
+      const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+      const navLinks = document.querySelector(".nav-links");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        navLinks.style.display =
+          navLinks.style.display === "flex" ? "none" : "flex";
+      });
+
+      // Smooth Scrolling for Navigation Links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
+            });
+
+            // Close mobile menu if open
+            if (window.innerWidth <= 768) {
+              navLinks.style.display = "none";
+            }
+          }
+        });
+      });
+
+      // Form Submission
+      const contactForm = document.getElementById("contactForm");
+
+      contactForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        // Get form values
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const package = document.getElementById("package").value;
+        const message = document.getElementById("message").value;
+
+        // In a real application, you would send this data to a server
+        // For this demo, we'll just show an alert
+        alert(
+          `Thank you ${name}! Your message has been received. We'll contact you at ${email} regarding the ${package} package soon.`
+        );
+
+        // Reset form
+        contactForm.reset();
+      });
+
+      // Pricing Card Interactions
+      document.querySelectorAll(".pricing-button").forEach((button) => {
+        button.addEventListener("click", function () {
+          const packageName =
+            this.closest(".pricing-card").querySelector(
+              ".pricing-name"
+            ).textContent;
+          document.getElementById("package").value = packageName
+            .toLowerCase()
+            .replace(" package", "");
+
+          // Scroll to contact form
+          document.getElementById("contact").scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+
+      // Service Cards Animation on Scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      // Observe service cards
+      document.querySelectorAll(".service-card").forEach((card) => {
+        card.style.opacity = 0;
+        card.style.transform = "translateY(20px)";
+        card.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+        observer.observe(card);
+      });
+
+      // Observe pricing cards
+      document.querySelectorAll(".pricing-card").forEach((card) => {
+        card.style.opacity = 0;
+        card.style.transform = "translateY(20px)";
+        card.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+        observer.observe(card);
+      });
+
+      // Observe feature cards
+      document.querySelectorAll(".feature-card").forEach((card) => {
+        card.style.opacity = 0;
+        card.style.transform = "translateY(20px)";
+        card.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+        observer.observe(card);
+      });
+    </script>
+  </body>
+</html>
