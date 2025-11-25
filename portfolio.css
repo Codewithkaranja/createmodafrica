@@ -571,7 +571,7 @@
       }
 
       .footer-col h3 {
-        color: white;
+        color: var(--emerald);
         margin-bottom: 25px;
         font-size: 1.3rem;
         position: relative;
@@ -918,3 +918,39 @@
         filter: grayscale(0%);
         opacity: 1;
       }
+ /*swiper slider*/
+      .mySwiper {
+  margin-top: 3rem;
+  padding-bottom: 4rem;
+}
+
+.swiper-slide {
+  display: flex;
+  flex-direction: column;
+  background-color: #111;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+  width: 480px;
+  
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.application-content {
+  padding: 1.5rem;
+  background-color: #000;
+  color: #ccc;
+  text-align: center;
+}
+
+
+
+
+.swiper-pagination-bullet {
+  background: var(--solar-yellow) !important;
+}

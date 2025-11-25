@@ -587,7 +587,7 @@
       }
 
       .footer-col h3 {
-        color: white;
+        color: var(--emerald);
         margin-bottom: 25px;
         font-size: 1.3rem;
         position: relative;
