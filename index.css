@@ -1090,3 +1090,101 @@
           grid-template-columns: 1fr;
         }
       }
+
+       /* Section Styling */
+.applications-section {
+  padding: 5rem 0;
+  background: linear-gradient(180deg, #0a0a0a 0%, #111111 100%);
+  color: #fff;
+}
+
+.applications-section .section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #00e6a4;
+}
+
+.applications-section .section-subtitle {
+  font-size: 1.1rem;
+  color: var(--white);
+  margin-bottom: 3rem;
+}
+
+/* Swiper Container */
+.mySwiper {
+  padding-bottom: 3rem;
+}
+
+.swiper-wrapper {
+  align-items: center; /* vertically center the slides */
+}
+
+/* Individual Slide / Card */
+.swiper-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  border-radius: 16px;
+  padding: 1.5rem 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  width: 200px; /* more compact, adjust for more visible slides */
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.swiper-slide:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.8);
+}
+
+/* Logo Images */
+.swiper-slide img {
+  width: auto;
+  max-width: 200%;
+  height: 150px; /* consistent logo height */
+  object-fit: contain; /* ensures full logo visibility */
+  margin-bottom: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.swiper-slide:hover img {
+  transform: scale(1.05);
+}
+
+/* Optional Text Content */
+.application-content {
+  display: none; /* keep it clean */
+}
+
+/* Pagination */
+.swiper-pagination {
+  bottom: 0;
+  margin-top: 2rem;
+}
+
+.swiper-pagination-bullet {
+  background: var(--solar-yellow) !important;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  transform: scale(1.3);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .swiper-slide {
+    width: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .swiper-slide {
+    width: 200px;
+    padding: 1rem;
+  }
+}
