@@ -14,7 +14,7 @@
       }
 
       body {
-        font-family: "Inter", sans-serif;
+        font-family: 'Jost', sans-serif;
         background-color: var(--white);
         color: var(--gray);
         line-height: 1.6;
@@ -26,7 +26,7 @@
       h3,
       h4 {
         color: #00e6a4;
-        font-weight: 700;
+        font-weight: 500;
         line-height: 1.2;
       }
 
@@ -41,7 +41,7 @@
         display: inline-block;
         padding: 14px 32px;
         border-radius: 4px;
-        font-weight: 600;
+        font-weight: 500;
         text-decoration: none;
         transition: all 0.3s ease;
         cursor: pointer;
@@ -122,7 +122,7 @@
 
       .logo {
         font-size: 1.8rem;
-        font-weight: 700;
+        font-weight: 500;
         color: white;
         text-decoration: none;
         display: flex;
@@ -363,7 +363,7 @@
         color: white;
         border-radius: 20px;
         font-size: 0.8rem;
-        font-weight: 600;
+        font-weight: 500;
       }
 
       .case-content {
@@ -395,7 +395,7 @@
 
       .stat-value {
         font-size: 1.5rem;
-        font-weight: 700;
+        font-weight: 500;
         color: #00e6a4;
       }
 
@@ -457,7 +457,7 @@
 
       .featured-stat .value {
         font-size: 2rem;
-        font-weight: 700;
+        font-weight: 500;
         color: var(--blue);
         margin-bottom: 5px;
       }
@@ -499,7 +499,7 @@
         left: 20px;
         font-size: 4rem;
         color: var(--light-blue);
-        font-family: Georgia, serif;
+        font-family: 'Jost', sans-serif;
         line-height: 1;
       }
 
@@ -766,7 +766,7 @@
         color: var(--blue);
         border-radius: 20px;
         font-size: 0.8rem;
-        font-weight: 600;
+        font-weight: 400;
       }
 
       .modal-stats {
@@ -786,7 +786,7 @@
 
       .modal-stat .value {
         font-size: 2rem;
-        font-weight: 700;
+        font-weight: 500;
         color: var(--blue);
         margin-bottom: 5px;
       }
@@ -887,7 +887,7 @@
 
 .applications-section .section-title {
   font-size: 2.5rem;
-  font-weight: 700;
+  font-weight: 500;
   margin-bottom: 0.5rem;
   color: #00e6a4;
 }
