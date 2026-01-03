@@ -16,7 +16,13 @@
 
       body {
         font-family: 'Jost', sans-serif;
-        background-color: var(--white);
+         background: linear-gradient(
+      rgba(238, 239, 240, 0.726), 
+      rgba(248, 249, 250, 0.562)
+    ),
+    url("image\ \(94\).webp") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
         color: var(--gray);
         line-height: 1.6;
         overflow-x: hidden;
@@ -431,7 +437,7 @@
 
      /* About Section */
 .about {
-  background: linear-gradient(180deg, #ffffff, #f8fbff);
+  background: linear-gradient(180deg, #d8d3d3cb, #f8fbffa1);
   padding: 90px 0;
 }
 
